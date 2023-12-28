@@ -15,11 +15,11 @@ bot=telebot.TeleBot(token,parse_mode="HTML")
 @bot.message_handler(commands=["stop"])
 def start(message):
     sto.update({"stop":True})
-    bot.reply_to(message,'👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊
+    bot.reply_to(message,'👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊 /n
 🚀𝐒𝐄𝐍𝐃 𝐂𝐎𝐌𝐁𝐎 𝐓𝐎 𝐂𝐇𝐊')
 @bot.message_handler(commands=["start"])
 def start(message):
- bot.send_message(message.chat.id,"👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊
+ bot.send_message(message.chat.id,"👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊 /n
 🚀𝐒𝐄𝐍𝐃 𝐂𝐎𝐌𝐁𝐎 𝐓𝐎 𝐂𝐇𝐊".format(message.chat.first_name),reply_markup=telebot.types.InlineKeyboardMarkup())
 @bot.message_handler(content_types=["document"])
 def main(message):
@@ -187,7 +187,7 @@ def main(message):
            bot.reply_to(message,'تم فحص الكومبو كامل')
  else:
      bot.reply_to(message,'🏴‍☠️𝐏𝐕𝐓 𝐁𝐎𝐓
- \ 🔓𝐅𝐎𝐑 𝐀𝐂𝐂𝐄𝐒𝐒 @LAGXD')
+ n\ 🔓𝐅𝐎𝐑 𝐀𝐂𝐂𝐄𝐒𝐒 @LAGXD')
 keep_alive()
 print("STARTED BOT @LAGXD ")
 bot.infinity_polling()
