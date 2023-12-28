@@ -5,7 +5,7 @@ from gatet import Tele
 import os
 dollar=50
 GROUP_ID = ['#']
-token = '625524568a3M'
+token = '6607332283:AAHuHc-QM2kYeRKh0x29xR4oz8BBnAt6FoI'
 bot=telebot.TeleBot(token,parse_mode="HTML")
 subscriber =1084525687
 @bot.message_handler(commands=["start"])
