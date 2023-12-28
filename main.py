@@ -15,10 +15,12 @@ bot=telebot.TeleBot(token,parse_mode="HTML")
 @bot.message_handler(commands=["stop"])
 def start(message):
     sto.update({"stop":True})
-    bot.reply_to(message,'وقفتلك الكومبو بعد اذنك استنا عشر ثواني عشان بقف ثنكس')
+    bot.reply_to(message,'👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊
+🚀𝐒𝐄𝐍𝐃 𝐂𝐎𝐌𝐁𝐎 𝐓𝐎 𝐂𝐇𝐊')
 @bot.message_handler(commands=["start"])
 def start(message):
- bot.send_message(message.chat.id,"مرحبا في البوت \nالبوت يعمل معك فقط \n للفحص ارسل فقط كومبو اذا واجهك خطا في الفحص يرجي عمل clean لكومبو بتاعك".format(message.chat.first_name),reply_markup=telebot.types.InlineKeyboardMarkup())
+ bot.send_message(message.chat.id,"👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊
+🚀𝐒𝐄𝐍𝐃 𝐂𝐎𝐌𝐁𝐎 𝐓𝐎 𝐂𝐇𝐊".format(message.chat.first_name),reply_markup=telebot.types.InlineKeyboardMarkup())
 @bot.message_handler(content_types=["document"])
 def main(message):
  first_name = message.from_user.first_name
