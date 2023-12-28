@@ -9,16 +9,16 @@ from telebot import *
 from GATEAU import Tele
 from colorama import Fore
 sto = {"stop":False}
-token = "6525839179:AAFH1j8ZrSXjPnoZGzj6CGWHvtekSNTP0Pw" 
+token = "6607332283:AAHuHc-QM2kYeRKh0x29xR4oz8BBnAt6FoI" 
 id =  1432366194
 bot=telebot.TeleBot(token,parse_mode="HTML")
 @bot.message_handler(commands=["stop"])
 def start(message):
     sto.update({"stop":True})
-    bot.reply_to(message,'𝐒𝐓𝐎𝐏𝐏𝐄𝐃🥀')
+    bot.reply_to(message,'وقفتلك الكومبو بعد اذنك استنا عشر ثواني عشان بقف ثنكس')
 @bot.message_handler(commands=["start"])
 def start(message):
- bot.send_message(message.chat.id,"👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊".format(message.chat.first_name),reply_markup=telebot.types.InlineKeyboardMarkup())
+ bot.send_message(message.chat.id,"مرحبا في البوت \nالبوت يعمل معك فقط \n للفحص ارسل فقط كومبو اذا واجهك خطا في الفحص يرجي عمل clean لكومبو بتاعك".format(message.chat.first_name),reply_markup=telebot.types.InlineKeyboardMarkup())
 @bot.message_handler(content_types=["document"])
 def main(message):
  first_name = message.from_user.first_name
@@ -184,7 +184,7 @@ def main(message):
        if sto["stop"] == False:
            bot.reply_to(message,'تم فحص الكومبو كامل')
  else:
-     bot.reply_to(message,'🏴‍☠️𝐏𝐕𝐓 𝐁𝐎𝐓 🔓𝐅𝐎𝐑 𝐀𝐂𝐂𝐄𝐒𝐒 @LAGXD')
+     bot.reply_to(message,'THE BOT IS PREMIUM CALL ME \n @IGFIG')
 keep_alive()
-print("STARTED BOT @LAGXD ")
+print("STARTED BOT @IGFIG ")
 bot.infinity_polling()
