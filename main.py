@@ -15,12 +15,10 @@ bot=telebot.TeleBot(token,parse_mode="HTML")
 @bot.message_handler(commands=["stop"])
 def start(message):
     sto.update({"stop":True})
-    bot.reply_to(message,'👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊 /n
-🚀𝐒𝐄𝐍𝐃 𝐂𝐎𝐌𝐁𝐎 𝐓𝐎 𝐂𝐇𝐊')
+    bot.reply_to(message,'𝐒𝐓𝐎𝐏𝐏𝐄𝐃🥀')
 @bot.message_handler(commands=["start"])
 def start(message):
- bot.send_message(message.chat.id,"👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊 /n
-🚀𝐒𝐄𝐍𝐃 𝐂𝐎𝐌𝐁𝐎 𝐓𝐎 𝐂𝐇𝐊".format(message.chat.first_name),reply_markup=telebot.types.InlineKeyboardMarkup())
+ bot.send_message(message.chat.id,"👑𝐋𝐀𝐆𝐗𝐃 𝐁𝟑 𝐂𝐇𝐊".format(message.chat.first_name),reply_markup=telebot.types.InlineKeyboardMarkup())
 @bot.message_handler(content_types=["document"])
 def main(message):
  first_name = message.from_user.first_name
