@@ -97,8 +97,8 @@ def main(message):
                   last = str(Tele(cc))
                except Exception as e:
                   print(e)
-                  bot.reply_to(message,f"CARD IS DEAD AND I SKIPPED >> {cc}")
-           if "risk" in last:
+                  bot.reply_to(message,f"fucked {cc}")
+           if "idk" in last:
            	risk += 1
            	print(Fore.YELLOW+cc+"->"+Fore.CYAN+last)
            elif "Insufficient Funds" in last:
