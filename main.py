@@ -184,8 +184,7 @@ def main(message):
        if sto["stop"] == False:
            bot.reply_to(message,'تم فحص الكومبو كامل')
  else:
-     bot.reply_to(message,'🏴‍☠️𝐏𝐕𝐓 𝐁𝐎𝐓
- n\ 🔓𝐅𝐎𝐑 𝐀𝐂𝐂𝐄𝐒𝐒 @LAGXD')
+     bot.reply_to(message,'🏴‍☠️𝐏𝐕𝐓 𝐁𝐎𝐓/n🔓𝐅𝐎𝐑 𝐀𝐂𝐂𝐄𝐒𝐒 @LAGXD')
 keep_alive()
 print("STARTED BOT @LAGXD ")
 bot.infinity_polling()
